@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2024 Stream.IO, Inc. All Rights Reserved.
+
+     Licensed under the Stream License;
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+  <string name="app_name">Live Shopping</string>
+  <string name="home_join_as_host">Join as Host</string>
+  <string name="home_join_as_guest">Join as Guest</string>
+  <string name="label_live">Live</string>
+  <string name="livestream_go_live">Go Live</string>
+  <string name="livestream_go_backstage">Go Backstage</string>
+  <string name="livestream_backstage">Your livestream is on the backstage now</string>
+  <string name="livestream_rendering_failed">Video rendering failed</string>
+  <string name="livestream_live_started">Livestream has been started!</string>
+  <string name="livestream_live_end">Livestream has been ended. Bye bye~</string>
+  <string name="livestream_joining_failed">Failed to join this livestream channel.</string>
+  <string name="follow">Follow</string>
+  <string name="buy">Buy</string>
+</resources>

@@ -1,0 +1,85 @@
+[versions]
+kotlin = "2.0.10"
+kotlinxCoroutines = "1.8.1"
+kotlinxSerializationJson = "1.6.3"
+ksp = "2.0.10-1.0.24"
+streamChatSDK = "6.4.4"
+streamVideoSDK = "1.0.12"
+streamLog = "1.1.4"
+jvmTarget = "17"
+landscapist = "2.3.6"
+accompanist = "0.34.0"
+androidGradlePlugin = "8.5.2"
+androidxActivity = "1.9.1"
+androidxCompose = "1.6.8"
+androidxComposeMaterial3 = "1.3.0-beta05"
+androidxComposeConstraintLayout = "1.0.1"
+androidxComposeNavigation = "2.8.0-beta07"
+androidxCore = "1.13.1"
+androidxHiltNavigationCompose = "1.2.0"
+androidxLifecycle = "2.8.4"
+androidxMacroBenchmark = "1.2.4"
+androidxProfileinstaller = "1.3.1"
+androidxStartup = "1.1.1"
+hilt = "2.52"
+okhttp = "4.12.0"
+retrofit = "2.11.0"
+sandwich = "2.0.8"
+retrofitKotlinxSerializationJson = "1.0.0"
+spotless = "6.7.0"
+turbine = "1.0.0"
+googleSecretPlugin = "2.0.1"
+
+[libraries]
+stream-chat-offline = { group = "io.getstream", name = "stream-chat-android-offline", version.ref = "streamChatSDK" }
+stream-chat-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
+stream-chat-previewdata = { group = "io.getstream", name = "stream-chat-android-previewdata", version.ref = "streamChatSDK" }
+stream-video-compose = { group = "io.getstream", name = "stream-video-android-ui-compose", version.ref = "streamVideoSDK" }
+stream-video-previewdata = { group = "io.getstream", name = "stream-video-android-previewdata", version.ref = "streamVideoSDK" }
+stream-log = { group = "io.getstream", name = "stream-log-android", version.ref = "streamLog" }
+landscapist-glide = { group = "com.github.skydoves", name = "landscapist-glide", version.ref = "landscapist" }
+landscapist-animation = { group = "com.github.skydoves", name = "landscapist-animation", version.ref = "landscapist" }
+landscapist-placeholder = { group = "com.github.skydoves", name = "landscapist-placeholder", version.ref = "landscapist" }
+accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
+androidx-benchmark-macro = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "androidxMacroBenchmark" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxComposeNavigation" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidxCompose" }
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "androidxCompose" }
+androidx-compose-material = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial3" }
+androidx-compose-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "androidxComposeConstraintLayout" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "androidxCompose" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidxCompose" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidxCompose" }
+androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "androidxCompose" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidxCompose" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
+androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "androidxProfileinstaller" }
+androidx-startup = { group = "androidx.startup", name = "startup-runtime", version.ref = "androidxStartup" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+sandwich-retrofit = { group = "com.github.skydoves", name = "sandwich-retrofit", version.ref = "sandwich" }
+retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+baseline-profile = { id = "androidx.baselineprofile", version.ref = "androidxMacroBenchmark" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+google-secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "googleSecretPlugin" }
