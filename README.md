@@ -22,12 +22,12 @@ The primary objective of this repository is to showcase the following:
 
 <p align="center">
 <img src="previews/preview0.png" alt="drawing" width="300" />
-<img src="previews/preview2.png" alt="drawing" width="300" />
+<img src="previews/preview1.png" alt="drawing" width="300" />
 </p>
 
 <p align="center">
-<img src="previews/preview1.png" alt="drawing" width="300" />
 <img src="previews/preview2.png" alt="drawing" width="300" />
+<img src="previews/preview3.png" alt="drawing" width="300" />
 </p>
 
 ## ✍️ Tutorial
