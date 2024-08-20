@@ -32,7 +32,7 @@ The primary objective of this repository is to showcase the following:
 
 ## ✍️ Tutorial
 
-If you're keen on learning about constructing a real-time livestreaming application using Jetpack Compose, we recommend exploring **[Android Livestreaming Tutorial](https://getstream.io/video/sdk/android/tutorial/livestreaming?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Aug2024_Jaewoong_LiveShopping&utm_term=DevRelOss)**. You can also check out our tutorial video for building a Live Streaming App on Android.
+If you're keen on learning about constructing a real-time livestreaming application using Jetpack Compose, we recommend exploring **[Android Livestreaming Tutorial](https://getstream.io/video/sdk/android/tutorial/livestreaming?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Aug2024_Jaewoong_LiveShopping&utm_term=DevRelOss)**. You can also check out our **[tutorial video for building a Live Streaming App on Android](https://youtu.be/ZPb6Q371dzc?feature=shared)**.
 
 <a href="https://youtu.be/ZPb6Q371dzc?si=kE2XBYAffuXQ5d3S"><img src="https://github.com/user-attachments/assets/9b45d36d-9e2b-45a1-9569-c39304d9e884" width="66%"></a>
 
