@@ -34,7 +34,7 @@ fun StreamButton(
   text: String,
   contentColor: Color = ChatTheme.colors.primaryAccent,
   enabled: Boolean = true,
-  onClick: () -> Unit,
+  onClick: () -> Unit
 ) {
   Button(
     modifier = modifier.clip(RoundedCornerShape(8.dp)),
@@ -42,12 +42,12 @@ fun StreamButton(
     onClick = onClick,
     colors = ButtonDefaults.buttonColors(
       containerColor = contentColor,
-      contentColor = contentColor,
-    ),
+      contentColor = contentColor
+    )
   ) {
     Text(
       text = text,
-      color = Color.White,
+      color = Color.White
     )
   }
 }

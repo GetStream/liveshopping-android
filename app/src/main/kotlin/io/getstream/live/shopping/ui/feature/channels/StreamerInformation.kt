@@ -54,7 +54,7 @@ fun StreamerInformation(
         .size(24.dp)
         .clip(CircleShape),
       imageModel = { streamerAvatarImage },
-      imageOptions = ImageOptions(contentScale = ContentScale.Crop),
+      imageOptions = ImageOptions(contentScale = ContentScale.Crop)
     )
 
     Spacer(modifier = Modifier.width(6.dp))

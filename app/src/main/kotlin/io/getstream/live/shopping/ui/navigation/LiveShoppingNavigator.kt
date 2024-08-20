@@ -33,8 +33,8 @@ class LiveShoppingNavigator @Inject constructor() : AppComposeNavigator<LiveShop
         route,
         navOptions {
           popUpTo(0)
-        },
-      ),
+        }
+      )
     )
   }
 
@@ -47,8 +47,8 @@ class LiveShoppingNavigator @Inject constructor() : AppComposeNavigator<LiveShop
       ComposeNavigationCommand.NavigateUpWithResult(
         key = key,
         result = result,
-        route = route,
-      ),
+        route = route
+      )
     )
   }
 }

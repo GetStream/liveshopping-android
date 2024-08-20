@@ -29,7 +29,7 @@ sealed interface ComposeNavigationCommand : NavigationCommand {
   data class NavigateUpWithResult<R, T : Any>(
     val key: String,
     val result: R,
-    val route: T? = null,
+    val route: T? = null
   ) : ComposeNavigationCommand
 
   data class PopUpToRoute<T : Any>(val route: T, val inclusive: Boolean) :

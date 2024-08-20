@@ -57,7 +57,7 @@ fun LiveShoppingHostInformation(
   streamerAvatarImage: String?,
   streamerName: String?,
   modifier: Modifier = Modifier,
-  verticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
+  verticalAlignment: Alignment.Vertical = Alignment.CenterVertically
 ) {
   Column {
     Row(
@@ -68,7 +68,7 @@ fun LiveShoppingHostInformation(
         )
         .padding(vertical = 4.dp, horizontal = 6.dp),
       verticalAlignment = verticalAlignment,
-      horizontalArrangement = Arrangement.spacedBy(6.dp),
+      horizontalArrangement = Arrangement.spacedBy(6.dp)
     ) {
       GlideImage(
         modifier = Modifier
@@ -76,7 +76,7 @@ fun LiveShoppingHostInformation(
           .clip(CircleShape),
         imageModel = { streamerAvatarImage },
         imageOptions = ImageOptions(contentScale = ContentScale.Crop),
-        previewPlaceholder = painterResource(R.drawable.ic_launcher_foreground),
+        previewPlaceholder = painterResource(R.drawable.ic_launcher_foreground)
       )
 
       Column(modifier = Modifier.padding(end = 6.dp)) {
@@ -93,7 +93,7 @@ fun LiveShoppingHostInformation(
 
         Row(
           verticalAlignment = Alignment.CenterVertically,
-          horizontalArrangement = Arrangement.spacedBy(4.dp),
+          horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
           Icon(
             modifier = Modifier.size(14.dp),
@@ -136,19 +136,19 @@ private fun LiveBadge(totalParticipants: Int) {
         shape = RoundedCornerShape(32.dp)
       )
       .padding(horizontal = 6.dp, vertical = 4.dp),
-    verticalAlignment = Alignment.CenterVertically,
+    verticalAlignment = Alignment.CenterVertically
   ) {
     Text(
       modifier = Modifier
         .background(
           color = VideoTheme.colors.brandRed,
-          shape = VideoTheme.shapes.container,
+          shape = VideoTheme.shapes.container
         )
         .padding(horizontal = 16.dp, vertical = 4.dp),
       text = stringResource(
-        id = io.getstream.video.android.ui.common.R.string.stream_video_live,
+        id = io.getstream.video.android.ui.common.R.string.stream_video_live
       ),
-      color = Color.White,
+      color = Color.White
     )
 
     Image(
@@ -156,18 +156,18 @@ private fun LiveBadge(totalParticipants: Int) {
         .size(20.dp)
         .padding(start = 6.dp, end = 2.dp),
       painter = painterResource(
-        id = io.getstream.video.android.ui.common.R.drawable.stream_video_ic_live,
+        id = io.getstream.video.android.ui.common.R.drawable.stream_video_ic_live
       ),
       contentDescription = stringResource(
-        id = io.getstream.video.android.ui.common.R.string.stream_video_live,
-      ),
+        id = io.getstream.video.android.ui.common.R.string.stream_video_live
+      )
     )
 
     Text(
       text = totalParticipants.toString(),
       color = Color.White,
       fontSize = 13.sp,
-      fontWeight = FontWeight.Bold,
+      fontWeight = FontWeight.Bold
     )
   }
 }
@@ -180,7 +180,7 @@ private fun LiveShoppingTopBarPreview() {
       streamerAvatarImage = null,
       streamerName = "streamer",
       totalParticipants = 20,
-      isHost = true,
+      isHost = true
     )
   }
 }

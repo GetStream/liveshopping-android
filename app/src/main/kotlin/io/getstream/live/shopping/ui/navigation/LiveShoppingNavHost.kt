@@ -49,7 +49,7 @@ import io.getstream.live.shopping.ui.feature.liveshopping.LiveShoppingScreen
 fun LiveShoppingNavHost(
   modifier: Modifier = Modifier,
   navController: NavHostController = rememberNavController(),
-  startDestination: LiveShoppingScreen = LiveShoppingScreen.Channels,
+  startDestination: LiveShoppingScreen = LiveShoppingScreen.Channels
 ) {
   NavHost(
     modifier = modifier
@@ -57,7 +57,7 @@ fun LiveShoppingNavHost(
       .background(ChatTheme.colors.appBackground)
       .statusBarsPadding(),
     navController = navController,
-    startDestination = startDestination,
+    startDestination = startDestination
   ) {
     composable<LiveShoppingScreen.Channels> {
       val clientInitialisationState
@@ -98,7 +98,7 @@ fun LiveShoppingNavHost(
       LiveShoppingScreen(
         isHost = root.isHost,
         listViewModel = listViewModel,
-        composerViewModel = composerViewModel,
+        composerViewModel = composerViewModel
       )
     }
   }

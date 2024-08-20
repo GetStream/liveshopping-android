@@ -68,7 +68,7 @@ import io.getstream.video.android.compose.theme.VideoTheme
 internal fun LiveShoppingBottomBar(
   messages: List<MessageItemState>,
   listViewModel: MessageListViewModel,
-  composerViewModel: MessageComposerViewModel,
+  composerViewModel: MessageComposerViewModel
 ) {
   Column(
     modifier = Modifier
@@ -77,7 +77,6 @@ internal fun LiveShoppingBottomBar(
       .fillMaxWidth(),
     verticalArrangement = Arrangement.spacedBy(6.dp)
   ) {
-
     ChatOverly(messages = messages)
 
     ProductBanner(channel = listViewModel.channel)
@@ -91,7 +90,7 @@ internal fun LiveShoppingBottomBar(
 
 @Composable
 private fun ProductBanner(
-  channel: Channel,
+  channel: Channel
 ) {
   Row(
     modifier = Modifier
@@ -101,7 +100,7 @@ private fun ProductBanner(
         shape = RoundedCornerShape(16.dp)
       )
       .padding(12.dp),
-    verticalAlignment = Alignment.CenterVertically,
+    verticalAlignment = Alignment.CenterVertically
   ) {
     GlideImage(
       modifier = Modifier
@@ -120,27 +119,27 @@ private fun ProductBanner(
 
     Column(
       modifier = Modifier.padding(6.dp),
-      verticalArrangement = Arrangement.spacedBy(4.dp),
+      verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
       Text(
         text = channel.extraData[EXTRA_STREAMER_NAME].toString(),
         color = ChatTheme.colors.textHighEmphasis,
         fontWeight = FontWeight.Bold,
-        fontSize = 16.sp,
+        fontSize = 16.sp
       )
 
       Text(
         text = channel.extraData[EXTRA_DESCRIPTION].toString(),
         color = ChatTheme.colors.textLowEmphasis,
         fontWeight = FontWeight.Bold,
-        fontSize = 12.sp,
+        fontSize = 12.sp
       )
 
       Text(
         text = "$79.99",
         color = VideoTheme.colors.brandRed,
         fontWeight = FontWeight.Bold,
-        fontSize = 16.sp,
+        fontSize = 16.sp
       )
     }
 
@@ -149,7 +148,7 @@ private fun ProductBanner(
         .padding(start = 16.dp)
         .height(36.dp),
       text = stringResource(R.string.buy),
-      onClick = {},
+      onClick = {}
     )
   }
 }
@@ -159,7 +158,6 @@ private fun ChatInput(
   cid: String,
   messageComposerViewModel: MessageComposerViewModel
 ) {
-
   val (text, changeText) = remember { mutableStateOf("") }
 
   Row(
@@ -167,7 +165,7 @@ private fun ChatInput(
       .imePadding()
       .fillMaxWidth()
       .padding(bottom = 12.dp),
-    verticalAlignment = Alignment.CenterVertically,
+    verticalAlignment = Alignment.CenterVertically
   ) {
     Icon(
       imageVector = Icons.Default.ShoppingBag,

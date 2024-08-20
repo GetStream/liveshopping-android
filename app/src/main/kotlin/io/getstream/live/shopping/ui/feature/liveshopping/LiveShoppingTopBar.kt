@@ -52,7 +52,7 @@ internal fun LiveShoppingTopBar(
   call: Call,
   isHost: Boolean,
   listViewModel: MessageListViewModel,
-  composerViewModel: MessageComposerViewModel,
+  composerViewModel: MessageComposerViewModel
 ) {
   val context = LocalContext.current
   val backstage by call.state.backstage.collectAsState()
@@ -69,7 +69,7 @@ internal fun LiveShoppingTopBar(
       modifier = Modifier.align(Alignment.CenterStart),
       streamerAvatarImage = listViewModel.channel.streamerAvatarLink,
       streamerName = listViewModel.channel.streamerName,
-      totalParticipants = totalParticipants,
+      totalParticipants = totalParticipants
     )
 
     if (isHost) {
@@ -78,12 +78,12 @@ internal fun LiveShoppingTopBar(
         colors = if (backstage) {
           ButtonDefaults.buttonColors(
             contentColor = VideoTheme.colors.brandYellow,
-            containerColor = VideoTheme.colors.brandYellow,
+            containerColor = VideoTheme.colors.brandYellow
           )
         } else {
           ButtonDefaults.buttonColors(
             contentColor = VideoTheme.colors.brandMaroon,
-            containerColor = VideoTheme.colors.brandMaroon,
+            containerColor = VideoTheme.colors.brandMaroon
           )
         },
         onClick = {
@@ -129,7 +129,7 @@ internal fun LiveShoppingTopBar(
           } else {
             stringResource(id = R.string.livestream_go_backstage)
           },
-          color = Color.White,
+          color = Color.White
         )
       }
     }

@@ -38,7 +38,7 @@ import io.getstream.chat.android.ui.common.state.messages.list.MessageItemState
 @Composable
 internal fun ChatOverly(
   modifier: Modifier = Modifier,
-  messages: List<MessageItemState>,
+  messages: List<MessageItemState>
 ) {
   val configuration = LocalConfiguration.current
 
@@ -49,7 +49,7 @@ internal fun ChatOverly(
           .padding(bottom = 4.dp)
           .clip(RoundedCornerShape(32.dp))
           .alpha((0.20f * index).coerceIn(minimumValue = 0.25f, maximumValue = 0.8f)),
-        messageItemState = message,
+        messageItemState = message
       )
     }
   }
@@ -58,15 +58,15 @@ internal fun ChatOverly(
 @Composable
 private fun Message(
   modifier: Modifier,
-  messageItemState: MessageItemState,
+  messageItemState: MessageItemState
 ) {
   Box(
-    modifier = Modifier.fillMaxWidth(),
+    modifier = Modifier.fillMaxWidth()
   ) {
     Box(
       modifier = modifier
         .matchParentSize()
-        .background(Color.Black),
+        .background(Color.Black)
     )
 
     Text(
@@ -75,7 +75,7 @@ private fun Message(
         .padding(vertical = 8.dp, horizontal = 16.dp),
       text = messageItemState.message.text,
       color = Color.White,
-      fontSize = 13.sp,
+      fontSize = 13.sp
     )
   }
 }

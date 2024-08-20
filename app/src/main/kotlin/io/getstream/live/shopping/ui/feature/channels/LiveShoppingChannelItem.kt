@@ -62,7 +62,7 @@ fun LiveShoppingChannelItem(
         navigator.navigate(
           LiveShoppingScreen.LiveShopping(
             cid = channelItemState.channel.cid,
-            isHost = false,
+            isHost = false
           )
         )
       }
