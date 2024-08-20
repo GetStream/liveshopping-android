@@ -7,28 +7,35 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  lint:
+    name: Spotless check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: set up JDK
-        uses: actions/setup-java@v1
+      - name: Check out code
+        uses: actions/checkout@v3.1.0
+      - name: Set up JDK
+        uses: actions/setup-java@v3.5.1
         with:
           distribution: adopt
           java-version: 17
+      - name: spotless
+        run: ./gradlew spotlessCheck
 
-      - name: Cache Gradle and wrapper
-        uses: actions/cache@v2
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: set up JDK
+        uses: actions/setup-java@v3
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          distribution: zulu
+          java-version: 17
+
+      - uses: gradle/gradle-build-action@v2.7.1
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: |
+          ./gradlew --scan --stacktrace \
+              :app:assembleDebug
