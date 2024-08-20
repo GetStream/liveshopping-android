@@ -27,7 +27,7 @@ retrofit = "2.11.0"
 sandwich = "2.0.8"
 retrofitKotlinxSerializationJson = "1.0.0"
 spotless = "6.7.0"
-turbine = "1.0.0"
+turbine = "1.1.0"
 googleSecretPlugin = "2.0.1"
 
 [libraries]
