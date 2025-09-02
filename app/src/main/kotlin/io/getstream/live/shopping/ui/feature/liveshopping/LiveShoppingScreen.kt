@@ -138,7 +138,7 @@ private fun StreamRenderer(
 
   val localParticipant by call.state.localParticipant.collectAsState()
   val video = localParticipant?.video?.collectAsState()?.value
-  val messages = listViewModel.currentMessagesState.messageItems
+  val messages = listViewModel.currentMessagesState.value.messageItems
     .filterIsInstance<MessageItemState>().take(5)
 
   Scaffold(
