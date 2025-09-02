@@ -59,6 +59,14 @@ internal fun LiveShoppingTopBar(
   val totalParticipants by call.state.totalParticipants.collectAsState()
   val scope = rememberCoroutineScope()
 
+  if (isHost) {
+    if (backstage) {
+      call.microphone.setEnabled(false, true)
+    } else {
+      call.microphone.setEnabled(true, true)
+    }
+  }
+
   Box(
     modifier = Modifier
       .fillMaxWidth()

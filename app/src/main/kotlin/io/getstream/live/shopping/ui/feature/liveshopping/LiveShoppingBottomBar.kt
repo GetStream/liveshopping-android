@@ -72,7 +72,7 @@ internal fun LiveShoppingBottomBar(
 ) {
   Column(
     modifier = Modifier
-      .padding(horizontal = 6.dp)
+      .padding(horizontal = 6.dp, vertical = 20.dp)
       .navigationBarsPadding()
       .fillMaxWidth(),
     verticalArrangement = Arrangement.spacedBy(6.dp)

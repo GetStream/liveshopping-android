@@ -16,6 +16,7 @@
 
 package io.getstream.live.shopping.ui.feature.liveshopping
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.calculateEndPadding
@@ -28,6 +29,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
@@ -48,6 +50,8 @@ import io.getstream.video.android.compose.permission.LaunchCallPermissions
 import io.getstream.video.android.compose.ui.components.livestream.LivestreamPlayer
 import io.getstream.video.android.compose.ui.components.video.VideoRenderer
 import io.getstream.video.android.core.Call
+import io.getstream.video.android.core.StreamVideo
+import io.getstream.video.android.core.notifications.internal.service.DefaultCallConfigurations
 import kotlinx.coroutines.launch
 
 @Composable
@@ -62,6 +66,15 @@ fun LiveShoppingScreen(
   val scope = rememberCoroutineScope()
   EnsureVideoCallPermissions {
     scope.launch {
+      val callConfigRegistry = StreamVideo.instanceOrNull()?.state?.callConfigRegistry
+      callConfigRegistry?.let {
+        if (isHost) {
+          callConfigRegistry.register("livestream", DefaultCallConfigurations.livestream)
+        } else {
+          callConfigRegistry.register("livestream", DefaultCallConfigurations.livestreamGuestCall)
+        }
+      }
+
       livestreamViewModel.joinCall(type = "livestream", id = "streamer")
     }
   }
@@ -138,8 +151,18 @@ private fun StreamRenderer(
 
   val localParticipant by call.state.localParticipant.collectAsState()
   val video = localParticipant?.video?.collectAsState()?.value
-  val messages = listViewModel.currentMessagesState.messageItems
+  val messages = listViewModel.currentMessagesState.value.messageItems
     .filterIsInstance<MessageItemState>().take(5)
+
+  LaunchedEffect(call) {
+    if (isHost) {
+      call.microphone.setEnabled(true, fromUser = true)
+      call.camera.setEnabled(true, fromUser = true)
+    } else {
+      call.microphone.setEnabled(false, fromUser = true)
+      call.camera.setEnabled(false, fromUser = true)
+    }
+  }
 
   Scaffold(
     modifier = modifier.background(ChatTheme.colors.appBackground),
@@ -161,6 +184,7 @@ private fun StreamRenderer(
       )
     }
   ) {
+    Log.d("StreamRenderer", "isHost:$isHost")
     if (isHost) {
       VideoRenderer(
         modifier = Modifier
@@ -179,7 +203,7 @@ private fun StreamRenderer(
         }
       )
     } else {
-      LivestreamPlayer(call = call, overlayContent = {})
+      LivestreamPlayer(call = call)
     }
   }
 }
