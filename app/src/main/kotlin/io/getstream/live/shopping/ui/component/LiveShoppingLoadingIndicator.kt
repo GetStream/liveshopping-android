@@ -30,7 +30,7 @@ public fun LiveShoppingLoadingIndicator() {
   Box(
     modifier = Modifier
       .fillMaxSize()
-      .background(ChatTheme.colors.appBackground)
+      .background(ChatTheme.colors.backgroundCoreApp)
   ) {
     CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
   }

@@ -84,7 +84,7 @@ fun LiveShoppingHostInformation(
           Text(
             modifier = Modifier.wrapContentSize(),
             text = streamerName,
-            style = ChatTheme.typography.bodyBold,
+            style = ChatTheme.typography.bodyEmphasis,
             fontSize = 14.sp,
             color = Color.White,
             fontWeight = FontWeight.Bold
@@ -105,7 +105,7 @@ fun LiveShoppingHostInformation(
           Text(
             modifier = Modifier.wrapContentSize(),
             text = "4.6k",
-            style = ChatTheme.typography.bodyBold,
+            style = ChatTheme.typography.bodyEmphasis,
             fontSize = 14.sp,
             color = Color.White,
             fontWeight = FontWeight.Bold

@@ -96,7 +96,7 @@ private fun ProductBanner(
     modifier = Modifier
       .fillMaxWidth()
       .background(
-        color = ChatTheme.colors.appBackground.copy(alpha = 0.85f),
+        color = ChatTheme.colors.backgroundCoreApp.copy(alpha = 0.85f),
         shape = RoundedCornerShape(16.dp)
       )
       .padding(12.dp),
@@ -123,14 +123,14 @@ private fun ProductBanner(
     ) {
       Text(
         text = channel.extraData[EXTRA_STREAMER_NAME].toString(),
-        color = ChatTheme.colors.textHighEmphasis,
+        color = ChatTheme.colors.textPrimary,
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp
       )
 
       Text(
         text = channel.extraData[EXTRA_DESCRIPTION].toString(),
-        color = ChatTheme.colors.textLowEmphasis,
+        color = ChatTheme.colors.textSecondary,
         fontWeight = FontWeight.Bold,
         fontSize = 12.sp
       )

@@ -73,7 +73,6 @@ dependencies {
 
   // Stream SDKs
   implementation(libs.stream.chat.compose)
-  implementation(libs.stream.chat.offline)
   implementation(libs.stream.video.compose)
   compileOnly(libs.stream.video.previewdata)
 

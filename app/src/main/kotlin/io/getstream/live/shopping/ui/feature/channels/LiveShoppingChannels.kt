@@ -27,12 +27,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.VideoCall
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -44,7 +46,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.compose.ui.channels.list.ChannelList
+import io.getstream.chat.android.compose.ui.theme.ChannelListDividerItemParams
+import io.getstream.chat.android.compose.ui.theme.ChannelListItemContentParams
+import io.getstream.chat.android.compose.ui.theme.ChatComponentFactory
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
+import io.getstream.chat.android.compose.ui.theme.LocalComponentFactory
 import io.getstream.chat.android.compose.viewmodel.channels.ChannelListViewModel
 import io.getstream.live.shopping.chat.createMockChannels
 import io.getstream.live.shopping.chat.createStreamerChannel
@@ -74,7 +80,7 @@ fun LiveShoppingChannels(
     Column(
       modifier = Modifier
         .fillMaxSize()
-        .background(ChatTheme.colors.appBackground)
+        .background(ChatTheme.colors.backgroundCoreApp)
     ) {
       Box(
         modifier = Modifier
@@ -83,7 +89,7 @@ fun LiveShoppingChannels(
       ) {
         Text(
           text = "Live Channels",
-          color = ChatTheme.colors.textHighEmphasis,
+          color = ChatTheme.colors.textPrimary,
           fontWeight = FontWeight.ExtraBold,
           lineHeight = 34.sp,
           fontSize = 28.sp
@@ -93,7 +99,7 @@ fun LiveShoppingChannels(
           modifier = Modifier
             .size(32.dp)
             .align(Alignment.CenterEnd)
-            .background(color = ChatTheme.colors.primaryAccent, shape = CircleShape)
+            .background(color = ChatTheme.colors.accentPrimary, shape = CircleShape)
         ) {
           Icon(
             modifier = Modifier
@@ -115,21 +121,21 @@ fun LiveShoppingChannels(
         }
       }
       if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-        ChannelList(
-          modifier = Modifier
-            .fillMaxSize()
-            .background(ChatTheme.colors.appBackground),
-          viewModel = channelListViewModel,
-          channelContent = { channelItemState ->
-            LiveShoppingChannelItem(channelItemState = channelItemState)
-          },
-          divider = { Spacer(modifier = Modifier.height(6.dp)) }
-        )
+        CompositionLocalProvider(
+          LocalComponentFactory provides LiveShoppingChannelListComponentFactory
+        ) {
+          ChannelList(
+            modifier = Modifier
+              .fillMaxSize()
+              .background(ChatTheme.colors.backgroundCoreApp),
+            viewModel = channelListViewModel
+          )
+        }
       } else {
         GridChannelList(
           modifier = Modifier
             .fillMaxSize()
-            .background(ChatTheme.colors.appBackground),
+            .background(ChatTheme.colors.backgroundCoreApp),
           viewModel = channelListViewModel,
           itemContent = { channelItemState ->
             LiveShoppingChannelItem(channelItemState = channelItemState)
@@ -140,5 +146,22 @@ fun LiveShoppingChannels(
     }
   } else {
     LiveShoppingLoadingIndicator()
+  }
+}
+
+/**
+ * Stream Chat Compose 7 customizes channel list items through a [ChatComponentFactory]
+ * instead of the `channelContent` and `divider` slots on [ChannelList].
+ */
+private object LiveShoppingChannelListComponentFactory : ChatComponentFactory {
+
+  @Composable
+  override fun LazyItemScope.ChannelListItemContent(params: ChannelListItemContentParams) {
+    LiveShoppingChannelItem(channelItemState = params.channelItem)
+  }
+
+  @Composable
+  override fun LazyItemScope.ChannelListDividerItem(params: ChannelListDividerItemParams) {
+    Spacer(modifier = Modifier.height(6.dp))
   }
 }

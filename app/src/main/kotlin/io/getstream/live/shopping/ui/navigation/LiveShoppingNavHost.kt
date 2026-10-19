@@ -34,10 +34,11 @@ import androidx.navigation.toRoute
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
 import io.getstream.chat.android.compose.viewmodel.channels.ChannelListViewModel
-import io.getstream.chat.android.compose.viewmodel.channels.ChannelViewModelFactory
+import io.getstream.chat.android.compose.viewmodel.channels.ChannelListViewModelFactory
+import io.getstream.chat.android.compose.viewmodel.messages.ChannelViewModelFactory
 import io.getstream.chat.android.compose.viewmodel.messages.MessageComposerViewModel
+import io.getstream.chat.android.compose.viewmodel.messages.MessageListOptions
 import io.getstream.chat.android.compose.viewmodel.messages.MessageListViewModel
-import io.getstream.chat.android.compose.viewmodel.messages.MessagesViewModelFactory
 import io.getstream.chat.android.models.Filters
 import io.getstream.chat.android.models.InitializationState
 import io.getstream.chat.android.models.querysort.QuerySortByField
@@ -54,7 +55,7 @@ fun LiveShoppingNavHost(
   NavHost(
     modifier = modifier
       .fillMaxSize()
-      .background(ChatTheme.colors.appBackground)
+      .background(ChatTheme.colors.backgroundCoreApp)
       .statusBarsPadding(),
     navController = navController,
     startDestination = startDestination
@@ -65,7 +66,7 @@ fun LiveShoppingNavHost(
 
       if (clientInitialisationState == InitializationState.COMPLETE) {
         val factory = remember {
-          ChannelViewModelFactory(
+          ChannelListViewModelFactory(
             chatClient = ChatClient.instance(),
             querySort = QuerySortByField.descByName("last_updated"),
             filters = Filters.eq("type", "livestream")
@@ -84,11 +85,13 @@ fun LiveShoppingNavHost(
       val root: LiveShoppingScreen.LiveShopping = backStackEntry.toRoute()
       val context = LocalContext.current
       val factory = remember {
-        MessagesViewModelFactory(
+        ChannelViewModelFactory(
           context = context,
           channelId = root.cid,
-          showDateSeparatorInEmptyThread = false,
-          showSystemMessages = false
+          messageListOptions = MessageListOptions(
+            showDateSeparatorInEmptyThread = false,
+            showSystemMessages = false
+          )
         )
       }
 

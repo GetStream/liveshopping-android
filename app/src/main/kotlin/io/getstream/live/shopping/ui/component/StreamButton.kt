@@ -32,7 +32,7 @@ import io.getstream.live.shopping.ui.preview.DefaultPreview
 fun StreamButton(
   modifier: Modifier = Modifier,
   text: String,
-  contentColor: Color = ChatTheme.colors.primaryAccent,
+  contentColor: Color = ChatTheme.colors.accentPrimary,
   enabled: Boolean = true,
   onClick: () -> Unit
 ) {
